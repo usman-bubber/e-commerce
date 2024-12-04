@@ -46,6 +46,7 @@ class AuthController extends BaseController
                     'isUserLoggedIn' => true,
                     'role_id' => $check_user['role_id'],
                 ]);
+                $this->session->set('userid', $check_user['id']);
                 return redirect()->to('admin/dashboard');
             } else {
                 $session->setFlashdata('fail', 'Password does not match.');

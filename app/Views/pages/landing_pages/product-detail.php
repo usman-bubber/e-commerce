@@ -19,7 +19,8 @@
                 <?php endforeach; ?>
             </div>
             <div class="d-flex justify-content-center gap-3 mt-5">
-                <a href="<?= base_url('checkin/' . esc($product['id'])) ?>" class="add-to-cart">Buy Now</a>
+                <!-- <a href="<?= base_url('checkin/' . esc($product['id'])) ?>" class="add-to-cart">Buy Now</a> -->
+                <button type="button" class="add-to-cart" data-product-id="<?= $product['id'] ?>">Add to cart</button>
             </div>
         </div>
 
@@ -125,18 +126,18 @@
             </ul>
 
             <div>
-    <h5 class="fw-bold">Description:</h5>
-    <p id="short-description-<?= $product['id'] ?>" class="short-description">
-        <?= word_limiter(esc($product['description'] ?? 'No description available.'), 40) ?>
-        <?php if (!empty($product['description']) && str_word_count($product['description']) > 40): ?>
-            <span>...</span>
-            <button class="btn btn-sm btn-link p-0 read-more-btn" data-product-id="<?= $product['id'] ?>">Read More</button>
-        <?php endif; ?>
-    </p>
-    <p id="full-description-<?= $product['id'] ?>" class="full-description d-none">
-        <?= esc($product['description'] ?? 'No description available.') ?>
-    </p>
-</div>
+                <h5 class="fw-bold">Description:</h5>
+                <p id="short-description-<?= $product['id'] ?>" class="short-description">
+                    <?= word_limiter(esc($product['description'] ?? 'No description available.'), 40) ?>
+                    <?php if (!empty($product['description']) && str_word_count($product['description']) > 40): ?>
+                        <span>...</span>
+                        <button class="btn btn-sm btn-link p-0 read-more-btn" data-product-id="<?= $product['id'] ?>">Read More</button>
+                    <?php endif; ?>
+                </p>
+                <p id="full-description-<?= $product['id'] ?>" class="full-description d-none">
+                    <?= esc($product['description'] ?? 'No description available.') ?>
+                </p>
+            </div>
 
 
             <div>
@@ -293,29 +294,49 @@
 </script>
 <!-- Script for Read More button in Description -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const readMoreButtons = document.querySelectorAll('.read-more-btn');
+    document.addEventListener('DOMContentLoaded', function() {
+        const readMoreButtons = document.querySelectorAll('.read-more-btn');
 
-    readMoreButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            const productId = button.getAttribute('data-product-id');
-            const shortDescription = document.getElementById(`short-description-${productId}`);
-            const fullDescription = document.getElementById(`full-description-${productId}`);
+        readMoreButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = button.getAttribute('data-product-id');
+                const shortDescription = document.getElementById(`short-description-${productId}`);
+                const fullDescription = document.getElementById(`full-description-${productId}`);
 
-            // Toggle visibility
-            if (fullDescription.classList.contains('d-none')) {
-                fullDescription.classList.remove('d-none');
-                shortDescription.classList.add('d-none');
-                button.textContent = 'Read Less'; // Change button text to 'Read Less'
-            } else {
-                fullDescription.classList.add('d-none');
-                shortDescription.classList.remove('d-none');
-                button.textContent = 'Read More'; // Change button text back to 'Read More'
-            }
+                // Toggle visibility
+                if (fullDescription.classList.contains('d-none')) {
+                    fullDescription.classList.remove('d-none');
+                    shortDescription.classList.add('d-none');
+                    button.textContent = 'Read Less'; // Change button text to 'Read Less'
+                } else {
+                    fullDescription.classList.add('d-none');
+                    shortDescription.classList.remove('d-none');
+                    button.textContent = 'Read More'; // Change button text back to 'Read More'
+                }
+            });
         });
     });
-});
 
+
+    $(document).ready(function() {
+        var base_url = '<?php echo base_url(); ?>';
+        $('.add-to-cart').click(function() {
+            var product_id = $(this).attr('data-product-id');
+            var quantity = $('.quantity-input').val();
+            $.ajax({
+                url: base_url + 'add_tocart',
+                type: 'get',
+                data: {
+                    product_id: product_id,
+                    quantity:quantity,
+                },
+                dataType: 'json',
+                success: function(html) {
+                    window.location.href = base_url + 'checkin';
+                }
+            });
+        });
+    });
 </script>
 
 <?= $this->endSection() ?>

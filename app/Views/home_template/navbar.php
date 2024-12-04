@@ -26,10 +26,23 @@
             <!-- Login Button -->
             <a href="<?= base_url('login') ?>" class="add-to-cart px-5">Login</a>
             <!-- Cart Icon -->
-            <a class="nav-link position-relative me-3" href="<?= base_url('cart') ?>">
+            <a class="nav-link position-relative me-3" href="<?= base_url('checkin') ?>">
                 <i class="bi bi-cart fs-3"></i>
                 <span class="position-absolute top-0 start-100">
-                    3 <!-- Example cart count -->
+                    <?php
+                    if (isset($_COOKIE['cart_cookie'])) {
+                        $cart_cookie = $_COOKIE['cart_cookie'];
+                        $cart_detail = json_decode($cart_cookie);
+                        $total_items = count($cart_detail);
+                        if (intval($total_items) < 10) {
+                            $show_total = $total_items;
+                        } else {
+                            $show_total = '9+';
+                        } ?>
+                        <?= $show_total ?>
+                    <?php } else { ?>
+                        0
+                    <?php } ?>
                 </span>
             </a>
         </div>

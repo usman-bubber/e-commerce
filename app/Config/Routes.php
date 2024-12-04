@@ -10,7 +10,7 @@ $routes->get('contact', 'Home::contact');
 $routes->get('about', 'Home::about');
 $routes->get('shop', 'Home::shop');
 $routes->get('product-detail/(:segment)', 'Home::product_detail/$1');
-$routes->get('checkin/(:segment)', 'Home::checkin/$1');
+$routes->get('checkin', 'Home::checkin');
 $routes->get('checkout', 'Home::checkout');
 $routes->get('product-checkin', 'Home::product_checkin');
 $routes->get('blog', 'Home::blog');
@@ -18,6 +18,8 @@ $routes->get('blog-details', 'Home::blog_details');
 $routes->get('contact', 'Home::contact');
 $routes->get('faq', 'Home::faq');
 $routes->get('categories/(:segment)', 'Home::categories/$1');
+$routes->get('/add_tocart', 'Home::add_tocart');
+$routes->post('/order_placement', 'Home::order_placement');
 
 // Login Routes
 $routes->get('login', 'AuthController::index');
