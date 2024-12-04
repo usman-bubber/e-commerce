@@ -1,0 +1,949 @@
+INFO - 2024-12-01 02:34:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:34:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:34:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 02:34:12 --> ErrorException: file_get_contents(C:\wamp64\www\e-commerce\writable\debugbar/debugbar_1732986519.114610.json): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar\Collectors\History.php on line 88.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\wamp64\\www\\e-commerce\\writable\\debugbar/debugbar_1732986519.114610.json): Failed to open stream: No such file or directory', 'C:\\wamp64\\www\\e-commerce\\system\\Debug\\Toolbar\\Collectors\\History.php', 88)
+ 2 SYSTEMPATH\Debug\Toolbar\Collectors\History.php(88): file_get_contents('C:\\wamp64\\www\\e-commerce\\writable\\debugbar/debugbar_1732986519.114610.json')
+ 3 SYSTEMPATH\Debug\Toolbar.php(518): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles('1733020449.307648', 20)
+ 4 SYSTEMPATH\Debug\Toolbar.php(497): CodeIgniter\Debug\Toolbar->format([...], 'html')
+ 5 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 6 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\Events\Events::trigger('pre_system')
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 02:34:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:34:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-01 02:34:31 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "product-1(2).png"
+[Method: GET, Route: admin/assets/images/products/product-1%282%29.png]
+in SYSTEMPATH\Router\Router.php on line 737.
+ 1 SYSTEMPATH\Router\Router.php(204): CodeIgniter\Router\Router->checkDisallowedChars('admin/assets/images/products/product-1(2).png')
+ 2 SYSTEMPATH\CodeIgniter.php(834): CodeIgniter\Router\Router->handle('admin/assets/images/products/product-1(2).png')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 02:34:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-01 02:34:41 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:34:41 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:34:41 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:34:41 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:34:41 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 02:35:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:35:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-01 02:35:29 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:35:29 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:35:29 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:35:29 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:35:29 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 02:35:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:35:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-01 02:35:40 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:35:40 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:35:40 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:35:40 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:35:40 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 02:35:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:35:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:35:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-01 02:35:59 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:35:59 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:35:59 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:35:59 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:35:59 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 02:36:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:38:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:39:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:40:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:40:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:48:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-01 02:48:52 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:48:52 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:48:52 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:48:52 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:48:52 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 02:49:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:49:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:49:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-01 02:49:40 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:49:40 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:49:40 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:49:40 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:49:40 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 02:49:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:49:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:49:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-01 02:49:59 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:49:59 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:49:59 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:49:59 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:49:59 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 02:50:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:50:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:50:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-01 02:50:14 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:50:14 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:50:14 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:50:14 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:50:14 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 02:50:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:56:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-01 02:56:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:56:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:56:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:56:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 02:56:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 02:58:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:58:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:58:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 02:58:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 03:01:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 03:01:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 03:01:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-01 03:01:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:01:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:01:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:01:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:01:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 03:01:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-01 03:01:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:01:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:01:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:01:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:01:50 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 03:01:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 03:02:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 03:02:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-01 03:02:19 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:02:19 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:02:19 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:02:19 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:02:19 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 03:02:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 03:02:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-01 03:02:27 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:02:27 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:02:27 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:02:27 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2024-12-01 03:02:27 --> [DEPRECATED] substr(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\pages\admin\category\category-list.php on line 102.
+ 1 APPPATH\Views\pages\admin\category\category-list.php(102): substr(null, 0, 70)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\e-commerce\\app\\Views\\pages\\admin\\category\\category-list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pages/admin/category/category-list', [], true)
+ 5 APPPATH\Controllers\CategoryController.php(49): view('pages/admin/category/category-list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CategoryController->category_list()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-01 03:02:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 03:03:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 03:03:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 03:05:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 03:05:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 03:05:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 03:05:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:00:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:00:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:07:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:08:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:08:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:08:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:09:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:09:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:09:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:09:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:20:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:20:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:20:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:20:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:21:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:31:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:32:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:32:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:32:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:32:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:32:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:36:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:36:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:36:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:40:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:40:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:40:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:42:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:44:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:44:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:44:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:48:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:48:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:49:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:49:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:50:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 04:50:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 13:20:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 13:20:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 13:21:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 13:21:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 17:23:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:01:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:16:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:19:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:19:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:19:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:19:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:20:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:20:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:22:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:22:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:22:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:22:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:22:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:22:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:23:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:23:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:25:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:26:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:27:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:28:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:31:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:35:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:42:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:48:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:58:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:59:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:59:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:59:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 18:59:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:00:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:01:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:01:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:01:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:02:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:02:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:03:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:03:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:03:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:04:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:04:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:05:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:05:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:06:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:06:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:06:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:08:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:09:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:10:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:11:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:11:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:15:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-01 19:16:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
