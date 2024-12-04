@@ -1,0 +1,478 @@
+@media screen and (max-width:1200px) {
+    .w_60 {
+        width: 80%;
+    }
+
+    .train_icon_pos {
+        margin-left: 120px;
+    }
+
+    .home_topcard_left {
+        margin-left: 50px;
+    }
+
+}
+
+
+@media screen and (max-width:991px) {
+    .main_heading {
+        font-size: 2rem;
+    }
+
+    .text_primary {
+        font-size: 1.2rem;
+    }
+
+    .w_60 {
+        width: 86%;
+    }
+
+    .tab_text_center {
+        text-align: center;
+    }
+
+    .sign_up_bg {
+        background-attachment: fixed;
+    }
+
+    .sign_up_card {
+        border-radius: 0px;
+        display: block;
+        /* min-height: auto !important;
+        height: auto !important; */
+        background-color: rgb(255, 255, 255, 0.8);
+    }
+
+    .forget_password_card {
+        border-radius: 0px;
+        display: block;
+        /* min-height: auto !important;
+        height: auto !important; */
+        background-color: rgb(255, 255, 255, 0.8);
+    }
+
+    .tab_ms_0 {
+        margin-left: 0px !important;
+    }
+
+    .train_icon_pos {
+        margin-left: 100px;
+        margin-top: 36px;
+    }
+
+    .plane_icon_pos {
+        margin-right: 100px;
+    }
+
+    .home_topcard_left {
+        margin-left: 0px;
+    }
+
+    .header_img_pos {
+        text-align: center;
+    }
+
+    .tour_book_card {
+        margin-bottom: 225px;
+        box-shadow: none;
+        margin-left: -78px;
+    }
+
+    .cart_icon {
+        margin-top: 16px;
+    }
+
+    .main_heading {
+        margin-top: 2rem;
+
+    }
+
+    .mob_no_display {
+        display: none;
+    }
+
+    .mob_display {
+        display: block !important;
+    }
+
+    .mob_no_dsp {
+        display: none;
+    }
+
+    .mob_margin_bot {
+        margin-bottom: 73px;
+    }
+
+    .whatsapp_text {
+        display: none;
+    }
+
+    .whatsapp_btn {
+
+        /* padding: 15px 6px 15px 15px; */
+        border-radius: 50%;
+        bottom: 90px;
+        right: 20px;
+        left: auto;   
+    }
+    .add_to_cart_pos {
+        position: fixed;
+        left: 2%;
+        bottom: 75px;
+        width: 96%;
+        z-index: 1;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .mob_w100 {
+        width: 100% !important;
+    }
+
+    .mob_mt_5 {
+        margin-top: 5px;
+    }
+
+    .mob_mt_0 {
+        margin-top: 0px !important;
+    }
+
+    .main_heading {
+        font-size: 1.5rem;
+    }
+
+    .text_primary {
+        font-size: 1rem;
+    }
+
+    .text_center_mob {
+        text-align: center;
+    }
+
+    .text_justify_mob {
+        text-align: justify;
+    }
+
+    .w_60 {
+        width: 90% !important;
+    }
+
+    .top_mrg {
+        top: 280px !important
+    }
+
+    .mob_no_dsp {
+        display: none !important;
+    }
+
+    .category_banner {
+        height: 220px;
+    }
+
+    .policy_back_block {
+        height: 400px;
+        max-width: 70%;
+    }
+
+    .policy_front_block {
+        height: 300px;
+        max-width: 100%;
+        border: 8px solid white;
+    }
+
+    .popular_categories_carousel .owl-nav,
+    .popular_categories_carousel .owl-nav.disabled {
+        top: -20px;
+    }
+
+    .find_categories_carousel .owl-nav,
+    .find_categories_carousel .owl-nav.disabled {
+        top: -37px;
+    }
+
+    .train_icon_pos {
+        margin-left: -20px;
+        margin-top: 36px;
+    }
+
+    .plane_icon_pos {
+        margin-right: 0px;
+    }
+
+    .home_topcard_left {
+        margin-left: 0px;
+    }
+
+    .category_img_section,
+    .category_img_section2 {
+        height: 120px;
+    }
+
+    
+
+    .find_categories_section {
+        padding: 6px 0px 0px 0px;
+    }
+
+    .all_categories_card {
+        width: 75px;
+        height: 75px;
+    }
+
+    .tour_book_card_width {
+        width: 88% !important;
+    }
+
+    .tour_book_card {
+        margin-bottom: 290px;
+        width: 190px;
+        box-shadow: none;
+        margin-left: -8px;
+        border-radius: 5px 5px 0px 0px;
+    }
+
+    .tour_book_card_img {
+        height: 80px;
+    }
+
+    .adonlabel_mob {
+        font-size: 12px;
+    }
+
+    .cart_icon {
+        margin-top: 16px;
+    }
+
+    .main_heading {
+        margin-top: 2rem;
+    }
+
+    .popular_categories_item_card {
+        width: 110px;
+        height: 110px;
+    }
+
+    .whatsapp_text {
+        display: none;
+    }
+
+    .whatsapp_btn {
+
+        /* padding: 15px 6px 15px 15px; */
+        border-radius: 50%;
+        bottom: 90px;
+        right: 20px;
+        left: auto;
+    }
+
+    .tour_search_input {
+        margin-bottom: 0 !important;
+    }
+
+    .home_top_img {
+        width: 70%;
+    }
+
+    .mob_limited_description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+
+    .mob_h_auto {
+        height: auto !important;
+    }
+
+    .custom_dropdown {
+        min-width: 100%;
+        padding: 5px 0;
+    }
+
+    .custom_dropdown_item {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+
+    /* Adjust icon and text spacing */
+    .nav-link img {
+        width: 10px;
+        /* Smaller icon */
+    }
+
+    .mob_no_display {
+        display: none;
+    }
+
+    .mob_display {
+        display: block !important;
+    }
+
+    .mob_margin_bot {
+        margin-bottom: 73px;
+    }
+
+    .add_to_cart_pos {
+        position: fixed;
+        left: 2%;
+        bottom: 75px;
+        width: 96%;
+        z-index: 1;
+    }
+
+    .mob_top_space {
+        margin-top: 120px;
+    }
+
+    .popular_categories_section {
+        padding: 10px 0;
+        overflow: hidden;
+    }
+
+    .find_categories_item,
+    .popular_categories_item {
+        margin: 10px 0;
+        display: block;
+    }
+
+    .choose_us_card {
+        background-color: #fff;
+        box-shadow: 0 16px 24px 0 rgb(40, 41, 61, .2);
+    }
+
+    .all_categories_section .all_categories_carousel .owl-nav .owl-next,
+    .all_categories_section .all_categories_carousel .owl-nav .owl-prev,
+    .popular_categories_section .popular_categories_carousel .owl-nav .owl-next,
+    .popular_categories_section .popular_categories_carousel .owl-nav .owl-prev,
+    .popular_categories_section .popular_categories_carousel .owl-nav .owl-next,
+    .popular_categories_section .popular_categories_carousel .owl-nav .owl-prev,
+    .popular_categories_carousel .owl-nav,
+    .popular_categories_carousel .owl-nav.disabled,
+    .all_categories_section .all_categories_carousel .owl-nav .owl-next,
+    .all_categories_section .all_categories_carousel .owl-nav .owl-prev,
+    .all_categories_carousel .owl-nav,
+    .all_categories_carousel .owl-nav.disabled,
+    .find_categories_carousel .owl-nav,
+    .find_categories_carousel .owl-nav.disabled {
+        display: none !important;
+    }
+    .placeorder_items li .btn_primary{
+        font-size: 12px;
+    }
+    .tour_detail_card_btn{
+        font-size: 12px !important;
+    }
+    .add_tour_btn {
+        width: 50% !important;
+    }
+}
+
+@media screen and (min-width:992px) {
+
+    .top_nav_pos {
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .sidebar_height {
+        height: calc(100vh - 96px);
+        flex-wrap: nowrap;
+        overflow: hidden;
+        overflow-y: auto;
+        width: 100%;
+    }
+
+    .fixed_pos {
+        position: fixed;
+        width: 18.5%;
+    }
+
+    .ms_25 {
+        margin-left: 17.5%;
+        width: 82%;
+    }
+
+    .pt_81 {
+        padding-top: 68px;
+    }
+
+    .sidebar_height::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+    }
+
+    .sidebar_height::-webkit-scrollbar {
+        width: 8px;
+        background-color: #F5F5F5;
+    }
+
+    .sidebar_height::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        background-color: rgb(250, 132, 67, 0.3);
+    }
+
+    .home_top_img {
+        width: 60%;
+    }
+
+    .fixed_top {
+        position: fixed;
+        top: 0;
+        width: 26.2%;
+        z-index: 1;
+    }
+
+    .header_img_pos {
+        text-align: right;
+    }
+
+    .cart_icon {
+        margin-left: 16px;
+    }
+    .col-lg-2-4 {
+        flex: 0 0 calc(25% - 8px);
+        max-width: calc(25% - 8px);
+      }
+}
+@media screen and (min-width:1200px){
+    .col-lg-2-4 {
+        flex: 0 0 calc(20%);
+        max-width: calc(20%);
+      }
+}
+
+@media screen and (max-width:375px) {
+    .text_mob_size {
+        font-size: small !important;
+    }
+
+    .text_mob_sizee {
+        font-size: xx-small !important;
+    }
+
+    .mob_star_size img {
+        height: 8px;
+        width: 8px;
+
+    }
+    .placeorder_items li .btn_primary{
+        font-size: 10px;
+    }
+    .tour_detail_card_btn{
+        font-size: 10px;
+    }
+    .price_orientation {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    .add_tour_btn {
+        font-size: 12px;
+    }
+}
