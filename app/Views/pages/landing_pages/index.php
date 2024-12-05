@@ -25,7 +25,6 @@
     <div class="d-flex justify-content-between align-items-center mb-4 brand-section">
         <h2>Category</h2>
     </div>
-    <h2></h2>
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <?php if (!empty($categories) && is_array($categories)): ?>
@@ -345,39 +344,4 @@
 
 <?= $this->endSection() ?>
 <?= $this->section('extraScript') ?>
-
-<!-- JavaScript Countdown Script -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Set the target countdown date
-        const countdownDate = new Date();
-        countdownDate.setDate(countdownDate.getDate() + 5);
-
-        function updateCountdown() {
-            const now = new Date();
-            const timeLeft = countdownDate - now;
-
-            if (timeLeft <= 0) {
-                document.getElementById('countdown').innerHTML = "Offer Expired!";
-                return;
-            }
-
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            // Update each span individually
-            document.getElementById('days').innerText = String(days).padStart(2, '0');
-            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
-        }
-
-        // Initial call and update every second
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-    });
-</script>
-
 <?= $this->endSection() ?>

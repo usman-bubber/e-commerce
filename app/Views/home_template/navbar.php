@@ -14,10 +14,10 @@
         <!-- Navbar Content -->
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav align-items-center">
-                <li class="nav-item"><a class="nav-link" href="<?= base_url('/') ?>">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= base_url('shop') ?>">Shop</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= base_url('faq') ?>">Faq's</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= base_url('contact') ?>">Contact</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold" href="<?= base_url('/') ?>">Home</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold" href="<?= base_url('shop') ?>">Shop</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold" href="<?= base_url('faq') ?>">Faq's</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold" href="<?= base_url('contact') ?>">Contact</a></li>
             </ul>
         </div>
 

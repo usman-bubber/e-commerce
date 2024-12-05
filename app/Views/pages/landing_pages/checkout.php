@@ -1,8 +1,8 @@
 <?= $this->extend('home_template/layout') ?>
 <?= $this->section('main_content') ?>
 <div class="container-fluid p-5 checkout-container">
-<form method="post" action="<?= base_url('order_placement') ?>">
-    <div class="row">
+    <form method="post" action="<?= base_url('order_placement') ?>">
+        <div class="row">
             <!-- Left Section -->
             <div class="col-lg-8">
                 <!-- Personal Details -->
@@ -52,7 +52,7 @@
                                 <input type="text" class="form-control" placeholder="Country">
                             </div>
                         </div>
-                        <button class="btn btn-link">+ Add New Billing Address</button>
+                        <!-- <button class="btn btn-link">+ Add New Billing Address</button> -->
                     </div>
                 </div>
 
@@ -60,16 +60,46 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="section-title">Payment Method</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="cashOnDelivery" checked>
+                            <label class="form-check-label" for="cashOnDelivery">Cash on Delivery</label>
+                        </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="paymentMethod" id="paypal" checked>
-                            <label class="form-check-label" for="paypal">PayPal</label>
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="bankTransfer">
+                            <label class="form-check-label" for="bankTransfer">Bank Transfer</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard">
                             <label class="form-check-label" for="creditCard">Credit Card</label>
                         </div>
-                        <div class="mt-3">
-                            <input type="text" class="form-control mb-2" placeholder="000-000000000-000">
+
+                        <!-- Bank Details -->
+                        <div id="bankDetails" class="mt-3" style="display: none;">
+                            <div class="card bg-white">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-primary fw-bold">Bank Transfer Details</h5>
+                                            <p class="mb-2"><strong>Bank Name:</strong> <span>Bank Alfalah</span></p>
+                                            <p class="mb-2"><strong>Receiver Name:</strong> <span>Muhammad Usman</span></p>
+                                            <p class="mb-0"><strong>Account Number:</strong> <span>8348952348958923</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-primary fw-bold">Other Transfer Accounts</h5>
+                                            <p class="mb-2"><strong>Bank Name:</strong> <span>Easypaisa & Jazzcash</span></p>
+                                            <p class="mb-2"><strong>Receiver Name:</strong> <span>Muhammad Usman</span></p>
+                                            <p class="mb-0"><strong>Account Number:</strong> <span>03317344949</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Credit Card Details -->
+                        <div id="creditCardDetails" class="mt-3" style="display: none;">
+                            <input type="text" class="form-control mb-2" placeholder="Card Number">
                             <div class="row">
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" placeholder="Expiry Date">
@@ -151,19 +181,44 @@
                         </ul>
                     </div>
                 </div>
-
-                <div class="estimated-delivery shadow-sm">
-                    <i class="bi bi-truck me-2"></i>
-                    Estimated Delivery by 25 April, 2024
-                </div>
                 <div class="mt-4 d-flex justify-content-between">
                     <button class="btn btn-back">Back to Cart</button>
                     <button type="submit" class="btn btn-checkout">Checkout Order</button>
                 </div>
             </div>
-    </div>
+        </div>
     </form>
 </div>
 <?= $this->endSection() ?>
 <?= $this->section('extraScript') ?>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Elements
+        const creditCardDetails = document.getElementById("creditCardDetails");
+        const bankDetails = document.getElementById("bankDetails");
+        const paymentMethods = document.getElementsByName("paymentMethod");
+
+        // Hide all sections initially
+        function hideAllDetails() {
+            creditCardDetails.style.display = "none";
+            bankDetails.style.display = "none";
+        }
+
+        // Show relevant section based on selected payment method
+        paymentMethods.forEach(method => {
+            method.addEventListener("change", function() {
+                hideAllDetails(); // Hide all sections first
+                if (this.id === "creditCard") {
+                    creditCardDetails.style.display = "block";
+                } else if (this.id === "bankTransfer") {
+                    bankDetails.style.display = "block";
+                }
+            });
+        });
+
+        // Ensure initial state reflects the default selection (Cash on Delivery)
+        hideAllDetails();
+    });
+</script>
+
 <?= $this->endSection() ?>

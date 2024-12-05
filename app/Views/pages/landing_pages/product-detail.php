@@ -1,5 +1,51 @@
 <?= $this->extend('home_template/layout') ?>
 <?= $this->section('main_content') ?>
+<style>
+    /* Color Option Styles */
+    .color-option {
+        display: inline-block;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .color-option.active span {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .color-option:hover span {
+        border-color: #007bff;
+    }
+
+    /* Size Option Styles */
+    .size-option {
+        display: inline-block;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .size-option.active span {
+        border-color: #007bff;
+        background-color: #007bff;
+        color: blue;
+        font-weight: 600;
+    }
+
+    .size-option:hover span {
+        border-color: #007bff;
+    }
+
+    input[type="radio"]:checked+.color-option span {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    input[type="radio"]:checked+.size-option span {
+        border-color: #007bff;
+        background-color: #007bff;
+        color: white;
+    }
+</style>
 <div class="container-fluid p-5">
     <div class="row">
         <!-- Product Image Section -->
@@ -19,7 +65,6 @@
                 <?php endforeach; ?>
             </div>
             <div class="d-flex justify-content-center gap-3 mt-5">
-                <!-- <a href="<?= base_url('checkin/' . esc($product['id'])) ?>" class="add-to-cart">Buy Now</a> -->
                 <button type="button" class="add-to-cart" data-product-id="<?= $product['id'] ?>">Add to cart</button>
             </div>
         </div>
@@ -50,30 +95,29 @@
                 <?php endif; ?>
             </h4>
 
-            <!-- Product Colors  -->
+            <!-- Product Colors -->
             <div class="my-4">
                 <h6>Colors:</h6>
-                <div class="d-flex gap-2">
+                <div class="d-flex gap-2" id="color-selection">
                     <?php
-                    // Decode the JSON string into an array
                     $colors = json_decode($product['color'] ?? '[]', true);
-
-                    // Check if colors are valid and display them
                     if (!empty($colors) && is_array($colors)):
                         foreach ($colors as $color):
-                            // Map color names to CSS-compatible color codes
                             $colorCode = match (strtolower($color)) {
-                                'dark' => '#000000', // Black
-                                'white' => '#ffffff', // White
-                                'red' => '#ff0000',  // Example for red
-                                'blue' => '#0000ff', // Example for blue
-                                default => $color,   // Assume valid CSS color if unmapped
+                                'dark' => '#000000',
+                                'white' => '#ffffff',
+                                'red' => '#ff0000',
+                                'blue' => '#0000ff',
+                                default => $color,
                             };
                     ?>
-                            <!-- Display a circular color swatch -->
-                            <span
-                                style="display: inline-block; width: 24px; height: 24px; background-color: <?= esc($colorCode) ?>; border: 1px solid #ccc; border-radius: 50%;"
-                                title="<?= esc(ucfirst($color)) ?>"></span>
+                            <!-- Color option -->
+                            <label class="color-option" data-color="<?= esc($color) ?>">
+                                <span
+                                    style="display: inline-block; width: 24px; height: 24px; background-color: <?= esc($colorCode) ?>; border: 1px solid #ccc; border-radius: 50%; cursor: pointer;"
+                                    title="<?= esc(ucfirst($color)) ?>"></span>
+                                <input type="checkbox" name="color[]" value="<?= esc($color) ?>" hidden>
+                            </label>
                         <?php
                         endforeach;
                     else:
@@ -83,23 +127,23 @@
                 </div>
             </div>
 
-            <!-- Product Size  -->
+            <!-- Product Sizes -->
             <div class="mb-4">
                 <h6>Sizes:</h6>
-                <div class="d-flex gap-2">
+                <div class="d-flex gap-2" id="size-selection">
                     <?php
-                    // Decode the JSON string into an array
                     $sizes = json_decode($product['size'] ?? '[]', true);
-
-                    // Check if sizes are valid and display them
                     if (!empty($sizes) && is_array($sizes)):
                         foreach ($sizes as $size):
                     ?>
-                            <!-- Display each size as a badge or button -->
-                            <span
-                                style="display: inline-block; padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #f8f9fa; font-size: 14px;">
-                                <?= esc($size) ?>
-                            </span>
+                            <!-- Size option -->
+                            <label class="size-option" data-size="<?= esc($size) ?>">
+                                <span
+                                    style="display: inline-block; padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #f8f9fa; font-size: 14px; cursor: pointer;">
+                                    <?= esc($size) ?>
+                                </span>
+                                <input type="checkbox" name="size[]" value="<?= esc($size) ?>" hidden>
+                            </label>
                         <?php
                         endforeach;
                     else:
@@ -109,6 +153,7 @@
                 </div>
             </div>
 
+            <!-- Product Quantity -->
             <div class="d-flex align-items-center mb-3">
                 <h6 class="me-3 fw-bold">Quantity:</h6>
                 <div class="input-group" style="width: 120px;">
@@ -118,12 +163,7 @@
                 </div>
             </div>
 
-            <!-- <ul class="list-unstyled text-success mb-3">
-                <li><i class="bi bi-check-circle"></i> <?= $product['stock'] > 0 ? 'In Stock' : 'Out of Stock' ?></li>
-                <li><i class="bi bi-truck"></i> Free delivery available</li>
-                <li><i class="bi bi-percent"></i> Sales <?= esc($product['discount'] ?? '0') ?>% Off</li>
-            </ul> -->
-
+            <!-- Product Description -->
             <div>
                 <h5 class="fw-bold">Description:</h5>
                 <p id="short-description-<?= $product['id'] ?>" class="short-description">
@@ -138,6 +178,7 @@
                 </p>
             </div>
 
+            <!-- Product Available Offers -->
             <div>
                 <h5 class="fw-bold">Available Offers:</h5>
                 <ul class="list-unstyled">
@@ -371,27 +412,118 @@
             });
         });
     });
-
-
+</script>
+<!-- Script for ad-to-cart checkin  -->
+<script>
     $(document).ready(function() {
         var base_url = '<?php echo base_url(); ?>';
+
         $('.add-to-cart').click(function() {
             var product_id = $(this).attr('data-product-id');
             var quantity = $('.quantity-input').val();
+            var colors = $('input[name="color[]"]:checked').map(function() {
+                return $(this).val();
+            }).get(); // Get selected colors
+            var sizes = $('input[name="size[]"]:checked').map(function() {
+                return $(this).val();
+            }).get(); // Get selected sizes
+
+            if (colors.length === 0 || sizes.length === 0) {
+                alert('Please select at least one color and one size.');
+                return;
+            }
+
             $.ajax({
                 url: base_url + 'add_tocart',
                 type: 'get',
                 data: {
                     product_id: product_id,
                     quantity: quantity,
+                    color: colors, // Send all selected colors
+                    size: sizes, // Send all selected sizes
                 },
                 dataType: 'json',
-                success: function(html) {
-                    window.location.href = base_url + 'checkin';
+                success: function(response) {
+                    if (response.status === 1) {
+                        window.location.href = base_url + 'checkin';
+                    } else {
+                        alert(response.message);
+                    }
                 }
             });
         });
     });
 </script>
+<!-- select color size and quantity script  -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get quantity input and initialize selections
+        const quantityInput = document.querySelector('.quantity-input');
+        const colorOptions = document.querySelectorAll('.color-option');
+        const sizeOptions = document.querySelectorAll('.size-option');
 
+        // Function to update selections based on quantity
+        const updateSelections = () => {
+            const quantity = parseInt(quantityInput.value);
+
+            // Allow up to `quantity` colors to be selected
+            const colorLimit = Math.min(quantity, colorOptions.length);
+            const selectedColors = Array.from(colorOptions).filter(option => option.querySelector('input[type="checkbox"]').checked).length;
+
+            // Enable/Disable color selections based on quantity
+            colorOptions.forEach(option => {
+                const checkbox = option.querySelector('input[type="checkbox"]');
+                if (selectedColors >= colorLimit) {
+                    if (!checkbox.checked) checkbox.disabled = true;
+                } else {
+                    checkbox.disabled = false;
+                }
+            });
+
+            // Allow up to `quantity` sizes to be selected
+            const sizeLimit = Math.min(quantity, sizeOptions.length);
+            const selectedSizes = Array.from(sizeOptions).filter(option => option.querySelector('input[type="checkbox"]').checked).length;
+
+            // Enable/Disable size selections based on quantity
+            sizeOptions.forEach(option => {
+                const checkbox = option.querySelector('input[type="checkbox"]');
+                if (selectedSizes >= sizeLimit) {
+                    if (!checkbox.checked) checkbox.disabled = true;
+                } else {
+                    checkbox.disabled = false;
+                }
+            });
+        };
+
+        // Event listener for quantity change
+        quantityInput.addEventListener('input', updateSelections);
+
+        // Color selection
+        colorOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Toggle active class and checkbox selection
+                const checkbox = option.querySelector('input[type="checkbox"]');
+                checkbox.checked = !checkbox.checked;
+                option.classList.toggle('active', checkbox.checked);
+
+                updateSelections(); // Update available selections
+            });
+        });
+
+        // Size selection
+        sizeOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Toggle active class and checkbox selection
+                const checkbox = option.querySelector('input[type="checkbox"]');
+                checkbox.checked = !checkbox.checked;
+                option.classList.toggle('active', checkbox.checked);
+
+                updateSelections(); // Update available selections
+            });
+        });
+
+        // Initialize selections on page load
+        updateSelections();
+    });
+</script>
 <?= $this->endSection() ?>

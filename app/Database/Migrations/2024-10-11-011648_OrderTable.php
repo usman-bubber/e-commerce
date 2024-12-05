@@ -21,6 +21,11 @@ class OrderTable extends Migration
                 'constraint' => 11,
                 'unsigned' => true,
             ],
+            'product_id' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+            ],
             'payment_method_id' => [
                 'type' => 'INT',
                 'constraint' => 11,
