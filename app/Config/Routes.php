@@ -20,6 +20,7 @@ $routes->get('faq', 'Home::faq');
 $routes->get('categories/(:segment)', 'Home::categories/$1');
 $routes->get('/add_tocart', 'Home::add_tocart');
 $routes->post('/order_placement', 'Home::order_placement');
+$routes->post('delete_item', 'Home::delete_item');
 
 // Login Routes
 $routes->get('login', 'AuthController::index');

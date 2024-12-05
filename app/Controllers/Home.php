@@ -25,6 +25,7 @@ class Home extends BaseController
     {
         $productModel = new ProductModel();
         $productImageModel = new ProductImagesModel();
+        $categoryModel = new CategoryModel();
 
         // Fetch product by slug
         $product = $productModel->where('id', $id)->first();
@@ -37,6 +38,8 @@ class Home extends BaseController
         $productImages = $productImageModel->where('product_id', $product['id'])->findAll();
 
         // Pass data to the view
+        $data['productModel'] = $productModel;
+        $data['categoryModel'] = $categoryModel;
         $data['product'] = $product;
         $data['productImages'] = $productImages;
 
@@ -49,43 +52,6 @@ class Home extends BaseController
     public function about(): string
     {
         return view('pages/landing_pages/about');
-    }
-    public function product_checkin(): string
-    {
-        return view('pages/landing_pages/product-checkin');
-    }
-    public function checkin(): string
-    {
-        $data = [];
-        if (!empty($_COOKIE['cart_cookie'])) {
-            $cart_cookie = $_COOKIE['cart_cookie'];
-            $cart_detail = json_decode($cart_cookie);
-
-            $product_model = new ProductModel();
-
-
-            foreach ($cart_detail as $key => $val) {
-                $data['product_detail'][$key] = $product_model->where('id', $val->product_detail->id)->first();
-            }
-        }
-        return view('pages/landing_pages/checkin', $data);
-    }
-    public function checkout(): string
-    {
-
-        $data = [];
-        if (!empty($_COOKIE['cart_cookie'])) {
-            $cart_cookie = $_COOKIE['cart_cookie'];
-            $cart_detail = json_decode($cart_cookie);
-
-            $product_model = new ProductModel();
-
-
-            foreach ($cart_detail as $key => $val) {
-                $data['product_detail'][$key] = $product_model->where('id', $val->product_detail->id)->first();
-            }
-        }
-        return view('pages/landing_pages/checkout', $data);
     }
     public function blog(): string
     {
@@ -122,12 +88,27 @@ class Home extends BaseController
             'products' => $products,
         ]);
     }
-
+    public function product_checkin(): string
+    {
+        return view('pages/landing_pages/product-checkin');
+    }
+    public function checkin(): string
+    {
+        $data = [];
+        if (!empty($_COOKIE['cart_cookie'])) {
+            $cart_cookie = $_COOKIE['cart_cookie'];
+            $cart_detail = json_decode($cart_cookie);
+            $product_model = new ProductModel();
+            foreach ($cart_detail as $key => $val) {
+                $data['product_detail'][$key] = $product_model->where('id', $val->product_detail->id)->first();
+            }
+        }
+        return view('pages/landing_pages/checkin', $data);
+    }
     public function add_tocart()
     {
         $productid = $this->request->getGet('product_id');
         $quantity = $this->request->getGet('quantity');
-
         $product_model = new ProductModel();
         $data['product_detail'] = $product_model->select('id')->where('id', $productid)->first();
         $data['product_detail']['quantity'] = $quantity;
@@ -136,38 +117,22 @@ class Home extends BaseController
         $cookieData = [
             $data
         ];
-
         // Retrieve existing cookie data if available
         $existingCookie = $this->request->getCookie('cart_cookie');
-
-
         if ($existingCookie) {
             if (is_string($existingCookie)) {
                 // Decode the existing cookie data
                 $existingData = json_decode($existingCookie, true);
-
                 // Check if decoding was successful and it's an array
                 if (is_array($existingData)) {
                     // Append new data to the existing data
                     $combinedData = array_merge($existingData, $cookieData);
-
-
-
                     // Serialize or encode the combined data
                     $encodedData = json_encode($combinedData);
-
-
-
-
-
                     // Update the cookie with the combined data
                     $response->setCookie('cart_cookie', $encodedData, 3600); // Expiration time of 1 hour
-
-
-
                     // Calculate total items in cookies
                     $totalItemsInCookies = count($combinedData);
-
                     // Update session with total items
                     $this->session->set('total_items_in_cookies', $totalItemsInCookies);
                     $myresponse['status'] = 1;
@@ -186,31 +151,24 @@ class Home extends BaseController
             // If no existing cookie data, set the cookie with the new data
             $encodedData = json_encode($cookieData);
             $response->setCookie('cart_cookie', $encodedData, 3600); // Expiration time of 1 hour
-
             // Update session with total items
             $this->session->set('total_items_in_cookies', 1);
             $myresponse['status'] = 1;
             $myresponse['message'] = 'Added to cart';
         }
-
         // Start maintaining session
         $cartItems = $this->session->get('cart_items') ?? []; // Retrieve cart items from session or initialize as an empty array if not set
-
         // Assuming your new item data is stored in $data['product_detail']
         $cartItems[] = $data['product_detail']; // Add the new item to the cart
 
-        //  var_dump(count($cartItems));
-        //  exit;
         $totalItems = count($cartItems); // Get the total number of items in the cart
         $this->session->set('cart_items', $cartItems); // Set the updated cart items in the session
         $this->session->set('isnotemptyCart', true); // Set session flag indicating cart is not empty
         $this->session->set('total_items', $totalItems); // Set session variable with the total number of items
-
         // End maintaining session
         echo json_encode($myresponse);
         return $response;
     }
-
     public function order_placement()
     {
 
@@ -242,7 +200,7 @@ class Home extends BaseController
             $order_model = new OrderModel();
 
             foreach ($cart_detail as $val) {
-             
+
                 $order_data = [
                     'user_id' => session('userid'),
                     'product_id' => $val->product_detail->id,
@@ -274,5 +232,46 @@ class Home extends BaseController
             session()->setFlashdata(['fail' => 'No product in Cart']);
             return redirect()->to('/cart_detail');
         }
+    }
+    public function checkout(): string
+    {
+        $data = [];
+        if (!empty($_COOKIE['cart_cookie'])) {
+            $cart_cookie = $_COOKIE['cart_cookie'];
+            $cart_detail = json_decode($cart_cookie);
+            $product_model = new ProductModel();
+            foreach ($cart_detail as $key => $val) {
+                $data['product_detail'][$key] = $product_model->where('id', $val->product_detail->id)->first();
+            }
+        }
+        return view('pages/landing_pages/checkout', $data);
+    }
+    public function delete_item()
+    {
+        $input = $this->request->getJSON(true); // Get JSON data
+        $productId = $input['id']; // Product ID from the request
+
+        if (!empty($_COOKIE['cart_cookie'])) {
+            $cart_cookie = $_COOKIE['cart_cookie'];
+            $cart_detail = json_decode($cart_cookie, true);
+
+            // Debugging: Log the structure of the cookie
+            log_message('debug', 'Cart cookie structure: ' . print_r($cart_detail, true));
+
+            foreach ($cart_detail as $key => $val) {
+                // Check if 'product_id' exists before accessing it
+                if (isset($val['product_id']) && $val['product_id'] == $productId) {
+                    unset($cart_detail[$key]);
+                    break;
+                }
+            }
+
+            // Update the cookie
+            setcookie('cart_cookie', json_encode($cart_detail), time() + (86400 * 30), "/");
+
+            return $this->response->setJSON(['success' => true, 'message' => 'Item removed from cart.']);
+        }
+
+        return $this->response->setJSON(['success' => false, 'message' => 'Item not found in cart.']);
     }
 }

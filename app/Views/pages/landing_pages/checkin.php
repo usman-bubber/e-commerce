@@ -6,109 +6,152 @@
         <span>There are 4 products in your cart</span>
         <a href="#" class="text-danger fw-bold text-decoration-none">Clear cart</a>
     </div>
-
-   
     <div class="row">
         <!-- Cart Items -->
-        <div class="col-md-8">
-            <!-- Product 1 -->
+        <div class="col-md-8" id="cart-items">
             <?php
             if (isset($_COOKIE['cart_cookie'])) {
                 $cart_cookie = $_COOKIE['cart_cookie'];
-                $cart_detail = json_decode($cart_cookie);
+                $cart_detail = json_decode($cart_cookie, true); // Decode into associative array
+                $subTotal = 0;
+                $totalDiscount = 0;
+
                 if (!empty($cart_detail)) {
                     foreach ($product_detail as $productdetail) {
+                        // print_r($productdetail);exit;
+                        $finalPrice = $productdetail['price'] - $productdetail['discount'];
+                        $subTotal += $productdetail['price'];
+                        $totalDiscount += $productdetail['discount'];
             ?>
-                        <div class="card shadow-sm mb-3 border">
+                        <!-- Product Card -->
+                        <div class="card shadow-sm mb-3 border position-relative" id="product-<?= $productdetail['id'] ?>">
                             <div class="card-body">
+                                <!-- Delete Icon -->
+                                <a href="javascript:void(0)"
+                                    class="text-danger position-absolute delete-item"
+                                    style="top: 10px; right: 10px;"
+                                    data-id="<?= $productdetail['id'] ?>"
+                                    title="Remove Item">
+                                    <i class="bi bi-trash fs-5"></i>
+                                </a>
                                 <div class="row align-items-center">
                                     <div class="col-md-2">
-                                        <img src="<?= base_url('uploads/products/cover_images/' . esc($productdetail['cover_image'])) ?>" alt="Product Image"
+                                        <img src="<?= base_url('uploads/products/cover_images/' . esc($productdetail['cover_image'])) ?>"
+                                            alt="<?= esc($productdetail['title']) ?>"
                                             class="img-fluid rounded">
                                     </div>
                                     <div class="col-md-6">
-                                        <h6 class="fw-bold mb-1"><?= $productdetail['title'] ?></h6>
-                                        <p class="mb-1">Color: Dark &nbsp; | &nbsp; Size: M</p>
-                                        <div class="input-group" style="width: 120px;">
-                                            <button class="btn btn-outline-secondary btn-decrease" type="button">-</button>
-                                            <input type="text" class="form-control text-center quantity-input" value="1" min="1"
-                                                inputmode="numeric" style="appearance: none;">
-                                            <button class="btn btn-outline-secondary btn-increase" type="button">+</button>
-                                        </div>
+                                        <h6 class="fw-bold mb-1"><?= esc($productdetail['title']) ?></h6>
                                     </div>
                                     <div class="col-md-4 text-end">
-                                        <p class="mb-1">Items Price: <span class="fw-bold">$80.00</span></p>
-                                        <p class="mb-1">Tax: <span class="text-muted">$3.00</span></p>
-                                        <p class="fw-bold mb-0">Total: $83.00</p>
+                                        <p class="mb-1">Item Price: <span class="fw-bold">PKR <?= number_format($productdetail['price'], 2) ?></span></p>
+                                        <p class="mb-1">Discount: <span class="text-danger">PKR <?= number_format($productdetail['discount'], 2) ?></span></p>
+                                        <p class="fw-bold mb-0">Final Price: PKR <?= number_format($finalPrice, 2) ?></p>
                                     </div>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mt-3">
-                                    <a href="#" class="text-danger">Remove</a>
-                                    <a href="#" class="text-primary">Add to Wishlist</a>
                                 </div>
                             </div>
                         </div>
-                <?php
+                    <?php
                     }
-                }
-            } else {
-                ?>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-12">
-                        <div class="card tour_detail_card p-4 mt-4 text-center">
-                            <img src="<?= base_url('assets/images/svg/panel_svg/cart_icon_active.svg') ?>" width="50" class="mx-auto" alt="cart icon active" />
-                            <h4 class="fw-bold mt-4">Your cart is empty!</h4>
-                            <p class="color_primary my-2">
-                                Must add a tour in the cart before you proceed to place the order.
-                            </p>
-                            <a href="<?= base_url('categories'); ?>" class="btn btn_primary add_tour_btn rounded-pill w-25 mx-auto mt-3">
-                                Add&nbsp;tour
-                            </a>
-                        </div>
+                } else {
+                    ?>
+                    <!-- Empty Cart Message -->
+                    <div class="text-center mt-4">
+                        <img src="<?= base_url('assets/images/svg/panel_svg/cart_icon_active.svg') ?>" width="50" alt="Empty Cart Icon">
+                        <h4 class="fw-bold mt-3">Your cart is empty!</h4>
+                        <p class="text-muted">Add items to your cart to proceed.</p>
+                        <a href="<?= base_url('categories') ?>" class="btn btn-primary rounded-pill">Add Items</a>
                     </div>
-                </div>
-            <?php } ?>
-
-
+            <?php
+                }
+            }
+            ?>
         </div>
+
         <!-- Order Summary -->
         <div class="col-md-4">
+            <?php
+            $deliveryCharge = 150.00;
+            $taxRate = 15.5;
+            $tax = ($subTotal - $totalDiscount) * ($taxRate / 100);
+            $totalAmount = $subTotal - $totalDiscount + $deliveryCharge + $tax;
+            ?>
             <div class="card shadow-sm border">
                 <div class="card-body">
                     <h6 class="fw-bold mb-4">Order Summary</h6>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex justify-content-between">
-                            <span><i class="bi bi-wallet2"></i> Sub Total:</span>
-                            <span>$777.00</span>
+                            <span>Sub Total:</span>
+                            <span>PKR <?= number_format($subTotal, 2) ?></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
-                            <span><i class="bi bi-percent"></i> Discount:</span>
-                            <span class="text-danger">-$60.00</span>
+                            <span>Discount:</span>
+                            <span class="text-danger">PKR <?= number_format($totalDiscount, 2) ?></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
-                            <span><i class="bi bi-truck"></i> Delivery Charge:</span>
-                            <span>$00.00</span>
+                            <span>Delivery Charge:</span>
+                            <span>PKR <?= number_format($deliveryCharge, 2) ?></span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span><i class="bi bi-calculator"></i> Estimated Tax (15.5%):</span>
-                            <span>$20.00</span>
-                        </li>
+                        <!-- <li class="list-group-item d-flex justify-content-between">
+                            <span>Estimated Tax (<?= $taxRate ?>%):</span>
+                            <span>PKR <?= number_format($tax, 2) ?></span>
+                        </li> -->
                         <li class="list-group-item d-flex justify-content-between fw-bold">
-                            <span><i class="bi bi-currency-dollar"></i> Total Amount:</span>
-                            <span class="text-success">$737.00</span>
+                            <span>Total Amount:</span>
+                            <span class="text-success">PKR <?= number_format($totalAmount, 2) ?></span>
                         </li>
                     </ul>
-                    <div class="mt-4 text-center">
-                        <div class="d-flex justify-content-between mt-4">
-                            <a href="<?= base_url('checkout') ?>" class="add-to-cart">Book Now</a>
-                            <button class="btn btn-secondary">Continue Shopping</button>
-                        </div>
+                    <div class="mt-4 d-flex justify-content-between">
+                        <a href="<?= base_url('checkout') ?>" class="add-to-cart">Book Now</a>
+                        <a href="<?= base_url('shop') ?>" class="btn btn-secondary">Book Now</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 <?= $this->endSection() ?>
 <?= $this->section('extraScript') ?>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const cartItems = document.getElementById("cart-items");
+
+        // Handle delete icon clicks
+        cartItems.addEventListener("click", function(event) {
+            const deleteButton = event.target.closest(".delete-item");
+            if (deleteButton) {
+                const productId = deleteButton.getAttribute("data-id");
+
+                // Send AJAX request to delete item
+                fetch("<?= base_url('delete_item') ?>", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-Requested-With": "XMLHttpRequest"
+                        },
+                        body: JSON.stringify({
+                            id: productId
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Remove product card from DOM
+                            const productCard = document.getElementById(`product-${productId}`);
+                            if (productCard) {
+                                productCard.remove();
+                            }
+
+                            // Optionally update totals dynamically here
+                            alert(data.message);
+                        } else {
+                            alert(data.message);
+                        }
+                    })
+                    .catch(error => console.error("Error:", error));
+            }
+        });
+    });
+</script>
 <?= $this->endSection() ?>

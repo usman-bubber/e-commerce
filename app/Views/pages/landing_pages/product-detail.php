@@ -7,7 +7,7 @@
             <div class="product-image text-center">
                 <img id="main-product-image"
                     src="<?= base_url('uploads/products/cover_images/' . esc($product['cover_image'])) ?>"
-                    class="img-fluid"
+                    class="img-fluid  bg-white"
                     alt="<?= esc($product['title']) ?>">
             </div>
             <div class="mt-4 d-flex justify-content-center gap-3">
@@ -109,7 +109,6 @@
                 </div>
             </div>
 
-
             <div class="d-flex align-items-center mb-3">
                 <h6 class="me-3 fw-bold">Quantity:</h6>
                 <div class="input-group" style="width: 120px;">
@@ -119,17 +118,17 @@
                 </div>
             </div>
 
-            <ul class="list-unstyled text-success mb-3">
+            <!-- <ul class="list-unstyled text-success mb-3">
                 <li><i class="bi bi-check-circle"></i> <?= $product['stock'] > 0 ? 'In Stock' : 'Out of Stock' ?></li>
                 <li><i class="bi bi-truck"></i> Free delivery available</li>
                 <li><i class="bi bi-percent"></i> Sales <?= esc($product['discount'] ?? '0') ?>% Off</li>
-            </ul>
+            </ul> -->
 
             <div>
                 <h5 class="fw-bold">Description:</h5>
                 <p id="short-description-<?= $product['id'] ?>" class="short-description">
-                    <?= word_limiter(esc($product['description'] ?? 'No description available.'), 40) ?>
-                    <?php if (!empty($product['description']) && str_word_count($product['description']) > 40): ?>
+                    <?= word_limiter(esc($product['description'] ?? 'No description available.'), 70) ?>
+                    <?php if (!empty($product['description']) && str_word_count($product['description']) > 70): ?>
                         <span>...</span>
                         <button class="btn btn-sm btn-link p-0 read-more-btn" data-product-id="<?= $product['id'] ?>">Read More</button>
                     <?php endif; ?>
@@ -138,7 +137,6 @@
                     <?= esc($product['description'] ?? 'No description available.') ?>
                 </p>
             </div>
-
 
             <div>
                 <h5 class="fw-bold">Available Offers:</h5>
@@ -191,47 +189,44 @@
                     <h5 class="fw-bold">Items Detail</h5>
                     <table class="details-table">
                         <tr>
-                            <td>Product Dimensions :</td>
-                            <td>53.3 x 40.6 x 6.4 cm; 500 Grams</td>
-                        </tr>
-                        <tr>
-                            <td>Date First Available :</td>
-                            <td>22 September 2023</td>
+                            <td>Product Name :</td>
+                            <td class="fw-bold"><?= esc($product['title']) ?></td>
                         </tr>
                         <tr>
                             <td>Department :</td>
-                            <td>Men</td>
+                            <td><?= esc(ucfirst($product['gender'])) ?></td>
                         </tr>
                         <tr>
-                            <td>Manufacturer :</td>
-                            <td>Greensboro, NC 27401 Prospa-Pal</td>
+                            <td>Brand Name :</td>
+                            <td><?= esc($product['brand_name']) ?></td>
                         </tr>
                         <tr>
-                            <td>ASIN :</td>
-                            <td>BOCJML118</td>
+                            <td>Quantity :</td>
+                            <td><?= esc($product['stock']) ?> items</td>
                         </tr>
                         <tr>
-                            <td>Item model number :</td>
-                            <td>1137AZ</td>
+                            <td>Item Weight:</td>
+                            <td><?= esc($product['weight']) ?> kg/gram</td>
+                        </tr>
+                        <tr>
+                            <td>Manufacture Date:</td>
+                            <td><?= esc(date('Y-m-d', strtotime($product['created_at']))) ?></td>
                         </tr>
                         <tr>
                             <td>Country of Origin :</td>
-                            <td>U.S.A</td>
+                            <td>Overall Pakistan</td>
                         </tr>
                         <tr>
-                            <td>Item Weight :</td>
-                            <td>500 g</td>
-                        </tr>
-                        <tr>
-                            <td>Generic Name :</td>
-                            <td>T-Shirt</td>
-                        </tr>
-                        <tr>
-                            <td>Best Sellers Rank :</td>
-                            <td>#13 in Clothing & Accessories</td>
+                            <td>Related Tags :</td>
+                            <td>
+                                <?php
+                                $tags = explode(',', $product['tags']); // Split the tags by comma
+                                foreach ($tags as $tag): ?>
+                                    <span class="badge bg-secondary me-1"><?= esc(trim($tag)) ?></span>
+                                <?php endforeach; ?>
+                            </td>
                         </tr>
                     </table>
-                    <a href="#" class="text-primary mt-2 d-block">View More Details →</a>
                 </div>
             </div>
         </div>
@@ -277,8 +272,68 @@
                                     class="text-primary small">Report</a>
                             </div>
                         </div>
+                        <a href="#" class="text-primary mt-2 d-block text-center">View More Customers Reviews →</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trending Products -->
+    <div class="row mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4 brand-section">
+            <h2>Related Products</h2>
+            <a href="<?= base_url('shop/') ?>" class="view-all">View All Products →</a>
+        </div>
+        <!-- Swiper Slider -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <?php
+                helper('product');
+                $products = get_all_products($productModel);
+                ?>
+                <?php if (!empty($products)): ?>
+                    <?php foreach ($products as $product): ?>
+                        <div class="swiper-slide">
+                            <a href="<?= base_url('product-detail/' . esc($product['id'])) ?>" style="text-decoration: none;">
+                                <div class="card shadow-sm border rounded h-100 d-flex flex-column">
+                                    <!-- Product Image -->
+                                    <div class="position-relative">
+                                        <img
+                                            src="<?= base_url('uploads/products/cover_images/' . esc($product['cover_image'])) ?>"
+                                            class="card-img-top rounded-top p-2"
+                                            style="height: 200px; object-fit: cover;">
+                                    </div>
+
+                                    <!-- Card Body -->
+                                    <div class="card-body flex-grow-1">
+                                        <h6 class="card-title text-truncate fw-bold"><?= esc($product['title']) ?></h6>
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <p class="text-muted small mb-0">
+                                                <span class="text-warning">★★★★★</span>
+                                                <span>104 Reviews</span>
+                                            </p>
+                                            <?php if (!empty($product['discount']) && $product['discount'] > 0): ?>
+                                                <p class="text-muted text-decoration-line-through mb-0">PKR <?= number_format($product['price'], 2) ?></p>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <?php if (!empty($product['discount']) && $product['discount'] > 0): ?>
+                                                <p class="text-danger mb-0"><?= number_format($product['discount'], 2) ?> Off</p>
+                                            <?php endif; ?>
+                                            <?php
+                                            $finalPrice = $product['price'] - $product['discount'];
+                                            ?>
+                                            <p class="fw-bold text-success mb-0">PKR <?= number_format($finalPrice, 2) ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p class="text-center">No products available at the moment.</p>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -328,7 +383,7 @@
                 type: 'get',
                 data: {
                     product_id: product_id,
-                    quantity:quantity,
+                    quantity: quantity,
                 },
                 dataType: 'json',
                 success: function(html) {
