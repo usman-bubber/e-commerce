@@ -136,34 +136,33 @@ class Home extends BaseController
     {
         $data = [];
         $cart_cookie = $this->request->getCookie('cart_cookie');
-    
+
         if (!empty($cart_cookie)) {
             // Decode the cookie data to access cart details
             $cart_detail = json_decode($cart_cookie, true);
-            
+
             $product_model = new ProductModel();
             $product_details = [];
-            
+
             // Fetch product details and merge with cart item data (color, size, quantity)
             foreach ($cart_detail as $key => $val) {
                 $product_info = $product_model->where('id', $val['id'])->first();
-                
+
                 // Merge product data with selected color, size, and quantity
                 $product_info['selected_color'] = is_array($val['colors']) ? implode(', ', $val['colors']) : $val['colors'];
                 $product_info['selected_size'] = $val['sizes'];
                 $product_info['selected_quantity'] = $val['quantity'];
-                
+
                 $product_details[$key] = $product_info;
             }
-            
+
             // Pass the combined data to the view
             $data['product_detail'] = $product_details;
         }
-    
+
         return view('pages/landing_pages/checkin', $data);
     }
-    
-    
+
     public function order_placement()
     {
         if (isset($_COOKIE['cart_cookie'])) {
@@ -175,6 +174,7 @@ class Home extends BaseController
                 $get_option = $product_optionmodel->where('id', $val->product_detail->id)->first();
                 $price = $get_option['price'];
             }
+
             $gender = $this->request->getPost('gender');
             $firstname = $_POST['firstname'];
             $lastname = $this->request->getPost('lastname');
@@ -236,14 +236,14 @@ class Home extends BaseController
     {
         $input = $this->request->getJSON(true); // Get JSON data
         $productId = $input['id']; // Product ID from the request
-    
+
         if (!empty($_COOKIE['cart_cookie'])) {
             $cart_cookie = $_COOKIE['cart_cookie'];
             $cart_detail = json_decode($cart_cookie, true);
-    
+
             // Debugging: Log the structure of the cookie
             log_message('debug', 'Cart cookie structure: ' . print_r($cart_detail, true));
-    
+
             $itemFound = false;
             foreach ($cart_detail as $key => $val) {
                 // Check if 'product_id' exists before accessing it
@@ -253,16 +253,15 @@ class Home extends BaseController
                     break;
                 }
             }
-    
+
             if ($itemFound) {
                 // Update the cookie
                 setcookie('cart_cookie', json_encode(array_values($cart_detail)), time() + (86400 * 30), "/");
-    
+
                 return $this->response->setJSON(['success' => true, 'message' => 'Item removed from cart.']);
             }
         }
-    
+
         return $this->response->setJSON(['success' => false, 'message' => 'Item not found in cart.']);
     }
-    
 }
