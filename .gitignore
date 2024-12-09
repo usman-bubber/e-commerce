@@ -1,0 +1,30 @@
+# Logs and debugbar files
+writable/logs/*
+writable/debugbar/*
+
+# Cache files
+writable/cache/*
+
+# Sessions
+writable/session/*
+
+# Exclude all writable content but keep the folder
+writable/*
+!writable/.gitignore
+
+# Environment-specific files
+.env
+
+# Ignore IDE/editor config files
+.idea/
+.vscode/
+*.swp
+
+# Ignore Node.js dependencies if you have them
+node_modules/
+
+# Ignore composer vendor folder
+vendor/
+
+# Exclude uploads if needed (uncomment if applicable)
+#writable/uploads/*
