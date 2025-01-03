@@ -8,6 +8,7 @@ use App\Models\ProductImagesModel;
 use App\Models\ProductModel;
 use App\Models\OrderModel;
 use App\Models\ProductReviewModel;
+use App\Models\OrderDetailModel;
 
 class Home extends BaseController
 {
@@ -145,7 +146,6 @@ class Home extends BaseController
         if (!empty($cart_cookie)) {
             // Decode the cookie data to access cart details
             $cart_detail = json_decode($cart_cookie, true);
-
             $product_model = new ProductModel();
             $product_details = [];
 
@@ -175,17 +175,20 @@ class Home extends BaseController
             //start calculating amount 
             $product_optionmodel = new ProductModel();
             foreach ($cart_detail as $val) {
-                $get_option = $product_optionmodel->where('id', $val->product_detail->id)->first();
+                $get_option = $product_optionmodel->where('id', $val->id)->first();
                 $price = $get_option['price'];
             }
 
             $gender = $this->request->getPost('gender');
-            $firstname = $_POST['firstname'];
-            $lastname = $this->request->getPost('lastname');
+            $first_name = $_POST['first_name'];
+            $last_name = $this->request->getPost('last_name');
             $email = $this->request->getPost('email');
-            $nationality = $this->request->getPost('nationality');
-            $mobile_no = $this->request->getPost('mobile_no');
-            $extra_detail = $this->request->getPost('extra_detail');
+            $phone_number = $this->request->getPost('phone_number');
+            $address = $this->request->getPost('address');
+            $zipcode = $this->request->getPost('zipcode');
+            $city = $this->request->getPost('city');
+            $country = $this->request->getPost('country');
+            $payment_id = $this->request->getPost('payment_id');
 
             $order_model = new OrderModel();
 
@@ -213,9 +216,21 @@ class Home extends BaseController
             $response->setCookie('cart_cookie', '', time() - 3600);
             // Send the response to the client
             $response->send();
-
+            $data = [
+                'gender' => $gender,
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email' => $email,
+                'phone_number' => $phone_number,
+                'address' => $address,
+                'zipcode' => $zipcode,
+                'city' => $city,
+                'country' => $country,
+                'payment_id' => $payment_id,
+            ];
+            $OrderDetailModel = new OrderDetailModel();
+            $OrderDetailModel->save($data);
             session()->setFlashdata(['success' => 'Order Place Successfully. Our agent will contact you soon.']);
-            //return redirect()->to('/admin/orders/detail?id=' . $insert_order);
             return redirect()->to('/thankyou?id=' . $insert_order);
         } else {
             session()->setFlashdata(['fail' => 'No product in Cart']);
@@ -228,6 +243,8 @@ class Home extends BaseController
         if (!empty($_COOKIE['cart_cookie'])) {
             $cart_cookie = $_COOKIE['cart_cookie'];
             $cart_detail = json_decode($cart_cookie, true); // Decode as an associative array
+// print_r($cart_detail);exit;
+
             $product_model = new ProductModel();
             foreach ($cart_detail as $key => $val) {
                 $product = $product_model->where('id', $val['id'])->first();
@@ -319,21 +336,20 @@ class Home extends BaseController
         // Get page number and product_id from AJAX
         $page = (int) ($_GET['page'] ?? 1);
         $product_id = (int) ($_GET['product_id'] ?? 0);
-    
+
         if ($page == 0) {
             $page = 1;
         }
         $perpage = 2;  // Set perpage to 2 to load 2 reviews at a time
         $offset = ($page - 1) * $perpage;
-    
+
         // Fetch reviews for the specified product ID
         $reviews = $ProductReviewModel->getfilterReviews($perpage, $offset, $product_id);
-    
+
         if (!empty($reviews)) {
             return view('pages/landing_pages/load-more-reviews', ['reviews' => $reviews]);
         } else {
             return 'null';  // No more reviews
         }
     }
-    
 }
