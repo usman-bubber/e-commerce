@@ -133,51 +133,57 @@
                         <!-- ad to card product details -->
                         <div class="reviews-section">
                             <?php
-                            if (isset($_COOKIE['cart_cookie'])) {
-                                $cart_cookie = $_COOKIE['cart_cookie'];
-                                $cart_detail = json_decode($cart_cookie);
-                                if (!empty($cart_detail)) {
-                                    foreach ($product_detail as $productdetail) {
+                            // Calculate estimated delivery date
+                            $currentDate = new DateTime();
+                            $currentDate->modify('+2 days');
+                            $estimatedDelivery = $currentDate->format('d F, Y');
+                            $subTotal = 0;
+                            $totalDiscount = 0;
+                            $deliveryCharge = 150.00;
+                            $totalAmount = $subTotal - $totalDiscount + $deliveryCharge;
+                            if (isset($product_detail) && !empty($product_detail)) {
+                                foreach ($product_detail as $productdetail) {
                             ?>
-                                        <div class="review-card d-flex mb-3 gap-4">
-                                            <img src="<?= base_url('uploads/products/cover_images/' . esc($productdetail['cover_image'])) ?>" alt="User 1">
-                                            <div class="ms-3">
-                                                <p class="small fw-bold"><?= $productdetail['title'] ?></p>
-                                                <span class="small">Size: <small>Small</small></span>
-                                            </div>
-                                            <div class="ms-3">
-                                                <p class="small fw-bold">300$</p>
-                                            </div>
+                                    <div class="review-card d-flex mb-3 gap-4">
+                                        <img src="<?= base_url('uploads/products/cover_images/' . esc($productdetail['cover_image'])) ?>" alt="Product Image">
+                                        <div class="ms-3">
+                                            <p class="small fw-bold"><?= esc($productdetail['title']) ?></p>
+                                            <span class="small">Color:
+                                                <small>
+                                                    <?= is_array($productdetail['colors']) ? implode(', ', $productdetail['colors']) : esc($productdetail['colors']) ?>
+                                                </small>
+                                            </span>
                                         </div>
+                                        <div class="ms-3">
+                                            <p class="small fw-bold"><?= esc($productdetail['price']) ?></p>
+                                        </div>
+                                    </div>
                             <?php
-                                    }
                                 }
                             }
                             ?>
-
                         </div>
-
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between">
                                 <span><i class="bi bi-wallet2"></i> Sub Total:</span>
-                                <span>$777.00</span>
+                                <span>PKR <?= number_format($subTotal, 2) ?></span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between">
                                 <span><i class="bi bi-percent"></i> Discount:</span>
-                                <span class="text-danger">-$60.00</span>
+                                <span class="text-danger">PKR <?= number_format($totalDiscount, 2) ?></span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between">
                                 <span><i class="bi bi-truck"></i> Delivery Charge:</span>
-                                <span>$00.00</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between">
-                                <span><i class="bi bi-calculator"></i> Estimated Tax (15.5%):</span>
-                                <span>$20.00</span>
+                                <span>PKR <?= number_format($deliveryCharge, 2) ?></span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between fw-bold">
                                 <span><i class="bi bi-currency-dollar"></i> Total Amount:</span>
-                                <span class="text-success">$737.00</span>
+                                <span class="text-success">PKR <?= number_format($totalAmount, 2) ?></span>
                             </li>
+                            <div class="estimated-delivery shadow-sm">
+                                <i class="bi bi-truck me-2"></i>
+                                Estimated Delivery by <?= $estimatedDelivery ?>
+                            </div>
                         </ul>
                     </div>
                 </div>

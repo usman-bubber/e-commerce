@@ -103,7 +103,7 @@
                                         <?php endforeach; ?>
                                    <?php else: ?>
                                         <tr id="noResults">
-                                             <td colspan="7" class="text-center">No categories available.</td>
+                                             <td colspan="7" class="text-center">No Product available.</td>
                                         </tr>
                                    <?php endif; ?>
                                    <!-- No results found row -->

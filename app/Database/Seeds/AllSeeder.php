@@ -15,7 +15,8 @@ class AllSeeder extends Seeder
         $this->call('PaymentStatusSeeder');
         $this->call('PaymentMethodSeeder');
         $this->call('FaqSeeder');
-        $this->call('TestimonialsSeeder');
+        $this->call('TestimonialsSeeder'); 
         $this->call('SiteSettingsSeeder');
+        $this->call('ProductReviewsSeeder');
     }
 }

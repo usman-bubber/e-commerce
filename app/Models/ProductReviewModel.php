@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ReviewModel extends Model
+class ProductReviewModel extends Model
 {
     protected $table            = 'product_reviews';
     protected $primaryKey       = 'id';
@@ -12,15 +12,7 @@ class ReviewModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [
-        'id',
-        'product_id',
-        'order_id',
-        'user_id',
-        'review',
-        'rating',
-        'created_at',
-    ];
+    protected $allowedFields    = ['product_id', 'name', 'rating', 'message', 'images', 'created_at', 'updated_at'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -51,4 +43,18 @@ class ReviewModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getfilterReviews($perpage = null, $offset = null, $product_id = null)
+    {
+        $query = $this->asArray();
+
+        if ($product_id) {
+            $query->where('product_id', $product_id);
+        }
+
+        // Fetch reviews based on pagination
+        $listing = $query->limit($perpage, $offset)->findAll();
+
+        return $listing;
+    }
 }

@@ -46,6 +46,61 @@
         color: white;
     }
 </style>
+<!-- Add Review Modal -->
+<div class="modal fade" id="addReviewModal" tabindex="-1" aria-labelledby="addReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addReviewModalLabel">Add Your Review</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Review Form -->
+                <form action="<?= base_url('save-review') ?>" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                    <input type="hidden" name="product_id" value="<?= esc($product['id']) ?>">
+
+                    <!-- Review Name -->
+                    <div class="mb-3">
+                        <label for="reviewName" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="reviewName" name="name" placeholder="Enter your name">
+                        <small id="nameError" class="text-danger d-none">Name is required.</small>
+                    </div>
+
+                    <!-- Rating -->
+                    <div class="mb-3">
+                        <label for="reviewStars" class="form-label">Rating</label>
+                        <select class="form-select" id="reviewStars" name="rating">
+                            <option selected disabled>Choose a rating</option>
+                            <option value="1">1 Star</option>
+                            <option value="2">2 Stars</option>
+                            <option value="3">3 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="5">5 Stars</option>
+                        </select>
+                        <small id="ratingError" class="text-danger d-none">Please select a rating.</small>
+                    </div>
+
+                    <!-- File Upload -->
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Received Product Images <span>(Optional)</span></label>
+                        <input type="file" class="form-control" id="file" name="file[]" multiple>
+                        <small id="fileError" class="text-danger d-none">You can upload up to 4 images only.</small>
+                    </div>
+
+                    <!-- Review Message -->
+                    <div class="mb-3">
+                        <label for="reviewMessage" class="form-label">Your Review</label>
+                        <textarea class="form-control" id="reviewMessage" name="message" rows="3" placeholder="Write your review here"></textarea>
+                        <small id="messageError" class="text-danger d-none">Review message is required.</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid p-5">
     <div class="row">
         <!-- Product Image Section -->
@@ -276,45 +331,66 @@
         <div class="col-md-4">
             <div class="card shadow-sm border-0">
                 <div class="card-body">
-                    <h5 class="fw-bold mb-3">Customer Reviews</h5>
-                    <div class="reviews-section">
-                        <!-- Review Card 1 -->
-                        <div class="review-card d-flex mb-3">
-                            <img src="https://via.placeholder.com/50" alt="User 1">
-                            <div class="ms-3">
-                                <h6>Henny K. Mark</h6>
-                                <p class="mb-1"><i class="bi bi-star-fill text-warning"></i> <i
-                                        class="bi bi-star-fill text-warning"></i> <i
-                                        class="bi bi-star-fill text-warning"></i> <i
-                                        class="bi bi-star-fill text-warning"></i> <i
-                                        class="bi bi-star-half text-warning"></i> Excellent Quality</p>
-                                <p class="small">Reviewed in Canada on 16 November 2023</p>
-                                <p class="small">Medium thickness. Did not shrink after wash... Highly recommended
-                                    in so low
-                                    price.</p>
-                                <a href="#" class="text-primary small">Helpful</a> · <a href="#"
-                                    class="text-primary small">Report</a>
-                            </div>
+                    <!-- Header Section -->
+                    <div class="row align-items-center mb-4">
+                        <div class="col-lg-6">
+                            <h5 class="fw-bold">Customer Reviews</h5>
                         </div>
-                        <!-- Review Card 2 -->
-                        <div class="review-card d-flex">
-                            <img src="https://via.placeholder.com/50" alt="User 2">
-                            <div class="ms-3">
-                                <h6>Jorge Herry</h6>
-                                <p class="mb-1"><i class="bi bi-star-fill text-warning"></i> <i
-                                        class="bi bi-star-fill text-warning"></i> <i
-                                        class="bi bi-star-fill text-warning"></i> <i
-                                        class="bi bi-star-fill text-warning"></i> <i
-                                        class="bi bi-star-fill text-warning"></i> Good Quality</p>
-                                <p class="small">Reviewed in U.S.A on 21 December 2023</p>
-                                <p class="small">I liked the t-shirt, it's pure cotton & skin friendly... best rated
-                                </p>
-                                <a href="#" class="text-primary small">Helpful</a> · <a href="#"
-                                    class="text-primary small">Report</a>
-                            </div>
+                        <div class="col-lg-6 text-end">
+                            <!-- Add Review Button -->
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addReviewModal">Add Review</button>
                         </div>
-                        <a href="#" class="text-primary mt-2 d-block text-center">View More Customers Reviews →</a>
                     </div>
+                    <!-- Product Reviews Section -->
+                    <div class="reviews-section" id="load_review_here">
+                        <?php
+                        if (isset($reviews) && !empty($reviews)) {
+                            $reviews_to_display = array_slice($reviews, 0, 2);
+
+                            foreach ($reviews_to_display as $key => $val) {
+                                $images = json_decode($val['images'], true);
+                        ?>
+                                <div class="review-card d-flex align-items-start mb-3" data-review-id="<?= esc($val['id']) ?>" data-product-id="<?= esc($val['product_id']) ?>">
+                                    <img src="<?= base_url('assets/images/profile_dummy.PNG') ?>" class="rounded-circle" alt="Reviewer Image">
+                                    <div class="ms-3">
+                                        <h6 class="mb-0"><?= esc($val['name']) ?></h6>
+                                        <p class="small text-muted"><?= !empty($val['created_at']) ? date('d M Y', strtotime($val['created_at'])) : 'Date not available'; ?></p>
+                                        <p class="mb-1 text-warning">
+                                            <?php
+                                            for ($i = 1; $i <= 5; $i++) {
+                                                if ($i <= $val['rating']) {
+                                                    echo '<i class="bi bi-star-fill"></i>';
+                                                } elseif ($i - $val['rating'] < 1) {
+                                                    echo '<i class="bi bi-star-half"></i>';
+                                                } else {
+                                                    echo '<i class="bi bi-star"></i>';
+                                                }
+                                            }
+                                            ?>
+                                        </p>
+                                        <p class="small mb-2"><?= esc($val['message']) ?></p>
+                                        <?php if (is_array($images) && !empty($images)) { ?>
+                                            <div class="row">
+                                                <?php foreach ($images as $image) {
+                                                    // Check if the image already includes the path
+                                                    $imagePath = strpos($image, 'uploads/reviews/') === 0 ? $image : 'uploads/reviews/' . $image;
+                                                ?>
+                                                    <div class="col-lg-3">
+                                                        <img src="<?= base_url(esc($imagePath)) ?>" class="img-fluid rounded" alt="Review Image">
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                        } else { ?>
+                            <p>No Review Found</p>
+                        <?php } ?>
+                        <!-- View More Link -->
+                    </div>
+                    <a href="#" id="more-review-btn" class="text-primary d-block text-center mt-3 fw-bold">View More Customer Reviews →</a>
                 </div>
             </div>
         </div>
@@ -379,6 +455,7 @@
         </div>
     </div>
 </div>
+
 <?= $this->endSection() ?>
 <?= $this->section('extraScript') ?>
 <!-- Script for Image perview changer  -->
@@ -524,6 +601,83 @@
 
         // Initialize selections on page load
         updateSelections();
+    });
+</script>
+<!-- Select only 4 images for reviews of product  -->
+<script>
+    function validateForm() {
+        // Clear any previous error messages
+        document.getElementById('nameError').classList.add('d-none');
+        document.getElementById('ratingError').classList.add('d-none');
+        document.getElementById('fileError').classList.add('d-none');
+        document.getElementById('messageError').classList.add('d-none');
+
+        const name = document.getElementById('reviewName').value.trim();
+        const rating = document.getElementById('reviewStars').value;
+        const fileInput = document.getElementById('file');
+        const message = document.getElementById('reviewMessage').value.trim();
+
+        // Validate Name
+        if (name === "") {
+            document.getElementById('nameError').classList.remove('d-none');
+            return false;
+        }
+
+        // Validate Rating
+        if (!rating) {
+            document.getElementById('ratingError').classList.remove('d-none');
+            return false;
+        }
+
+        // Validate File Input (Limit to 4 files)
+        if (fileInput.files.length > 4) {
+            document.getElementById('fileError').classList.remove('d-none');
+            return false;
+        }
+
+        // Validate Review Message
+        if (message === "") {
+            document.getElementById('messageError').classList.remove('d-none');
+            return false;
+        }
+
+        // If everything is valid, allow the form to be submitted
+        return true;
+    }
+</script>
+<!-- Load more Reviews script  -->
+<script>
+    var page = 1;
+    var productId = "<?= esc($val['product_id'] ?? '') ?>";
+    function loadMoreReview() {
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url('fetch-more-reviews') ?>",
+            data: {
+                page: ++page,
+                product_id: productId
+            },
+            dataType: 'html',
+            async: true,
+            success: function(response) {
+                if (response != 'null') {
+                    $('#load_review_here').html(response);
+                } else {
+                    $('#more-review-btn').text('No more reviews');
+                    $('#more-review-btn').attr('disabled', true);
+                }
+            },
+            error: function() {
+                alert("An error occurred while loading more reviews.");
+            }
+        });
+    }
+
+    $(document).on('click', '#more-review-btn', function() {
+        loadMoreReview(); // Trigger the load more function
+        $('html, body').animate({
+            scrollTop: '+=100px' // Scroll down a bit after loading more
+        }, 'slow');
     });
 </script>
 <?= $this->endSection() ?>

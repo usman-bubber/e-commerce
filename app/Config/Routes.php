@@ -21,11 +21,14 @@ $routes->get('categories/(:segment)', 'Home::categories/$1');
 $routes->get('/add_tocart', 'Home::add_tocart');
 $routes->post('/order_placement', 'Home::order_placement');
 $routes->post('delete_item', 'Home::delete_item');
+$routes->post('save-review', 'Home::saveReview');
+$routes->get('fetch-more-reviews', 'Home::fetchMoreReviews');
 
 // Login Routes
 $routes->get('login', 'AuthController::index');
 $routes->post('admin-login', 'AuthController::admin_login');
 $routes->post('upload-resized-images', 'DropzoneController::upload_resized_images');
+
 // Admin Routes
 $routes->group('admin', ['filter' => 'authlogin_and_adminroutes'], function ($routes) {
     // jsut testing for dropzone 

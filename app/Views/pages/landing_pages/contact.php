@@ -49,18 +49,18 @@
                     Have a question or need assistance? Reach out to us via email, phone, or the contact form below.
                     We're eager to assist you.
                 </p>
-                <form class="contact-form">
+                <form action="<?= base_url('admin/store-category') ?>" class="contact-form" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="fullName" class="form-label">Full Name:</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Your Name">
+                        <input type="text" class="form-control" id="fullName" name="name" placeholder="Your Name">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email:</label>
-                        <input type="email" class="form-control" id="email" placeholder="Your Email">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label">Message:</label>
-                        <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your Message"></textarea>
                     </div>
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="add-to-cart">Submit</button>

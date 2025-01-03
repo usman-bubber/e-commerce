@@ -29,93 +29,39 @@
                     <table class="table align-middle mb-0 table-hover table-centered">
                          <thead class="bg-light-subtle">
                               <tr class="text-center">
-                                   <th>ID</th>
-                                   <th>Customer</th>
-                                   <th>Product Name</th>
-                                   <th>Description</th>
+                                   <th>Sr#</th>
+                                   <th>Product Title</th>
+                                   <th>Review ID</th>
                                    <th>Rating</th>
+                                   <th>Message</th>
+                                   <th>Date</th>
                                    <th>Action</th>
                               </tr>
                          </thead>
                          <tbody>
-                              <tr>
-                                   <td>01</td>
-                                   <td>
-                                        <div class="avatar-group">
-                                             <div class="avatar">
-                                                  <img src="<?= base_url('assets/images/users/avatar-4.jpg') ?>" alt="" class="rounded-circle avatar-sm">
-                                             </div>
-                                        </div>
-                                   </td>
-                                   <td>
-                                        Men T-shirt Large Size
-                                   </td>
-                                   <td>
-                                        I recently purchased a t-shirt that I was quite excited about, and I must say, there are several aspects that I really appreciate about it. Firstly, the material is absolutely wonderful.
-                                   </td>
-                                   <td>
-                                        5 star rating
-                                   </td>
-                                   <td>
-                                        <div class="d-flex gap-2">
-                                             <a href="<?= base_url('admin/role-detail') ?>" class="btn btn-light btn-sm"><iconify-icon icon="solar:eye-broken" class="align-middle fs-18"></iconify-icon></a>
-                                             <a href="<?= base_url('admin/edit-role') ?>" class="btn btn-soft-primary btn-sm"><iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                             <a href="<?= base_url('admin/role-detail') ?>" class="btn btn-soft-danger btn-sm"><iconify-icon icon="solar:trash-bin-minimalistic-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                        </div>
-                                   </td>
-                              </tr>
-                              <tr>
-                                   <td>01</td>
-                                   <td>
-                                        <div class="avatar-group">
-                                             <div class="avatar">
-                                                  <img src="<?= base_url('assets/images/users/avatar-4.jpg') ?>" alt="" class="rounded-circle avatar-sm">
-                                             </div>
-                                        </div>
-                                   </td>
-                                   <td>
-                                        Men T-shirt Large Size
-                                   </td>
-                                   <td>
-                                        I recently purchased a t-shirt that I was quite excited about, and I must say, there are several aspects that I really appreciate about it. Firstly, the material is absolutely wonderful.
-                                   </td>
-                                   <td>
-                                        5 star rating
-                                   </td>
-                                   <td>
-                                        <div class="d-flex gap-2">
-                                             <a href="<?= base_url('admin/role-detail') ?>" class="btn btn-light btn-sm"><iconify-icon icon="solar:eye-broken" class="align-middle fs-18"></iconify-icon></a>
-                                             <a href="<?= base_url('admin/edit-role') ?>" class="btn btn-soft-primary btn-sm"><iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                             <a href="<?= base_url('admin/role-detail') ?>" class="btn btn-soft-danger btn-sm"><iconify-icon icon="solar:trash-bin-minimalistic-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                        </div>
-                                   </td>
-                              </tr>
-                              <tr>
-                                   <td>01</td>
-                                   <td>
-                                        <div class="avatar-group">
-                                             <div class="avatar">
-                                                  <img src="<?= base_url('assets/images/users/avatar-4.jpg') ?>" alt="" class="rounded-circle avatar-sm">
-                                             </div>
-                                        </div>
-                                   </td>
-                                   <td>
-                                        Men T-shirt Large Size
-                                   </td>
-                                   <td>
-                                        I recently purchased a t-shirt that I was quite excited about, and I must say, there are several aspects that I really appreciate about it. Firstly, the material is absolutely wonderful.
-                                   </td>
-                                   <td>
-                                        5 star rating
-                                   </td>
-                                   <td>
-                                        <div class="d-flex gap-2">
-                                             <a href="<?= base_url('admin/role-detail') ?>" class="btn btn-light btn-sm"><iconify-icon icon="solar:eye-broken" class="align-middle fs-18"></iconify-icon></a>
-                                             <a href="<?= base_url('admin/edit-role') ?>" class="btn btn-soft-primary btn-sm"><iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                             <a href="<?= base_url('admin/role-detail') ?>" class="btn btn-soft-danger btn-sm"><iconify-icon icon="solar:trash-bin-minimalistic-2-broken" class="align-middle fs-18"></iconify-icon></a>
-                                        </div>
-                                   </td>
-                              </tr>
+                              <?php if (!empty($reviews)) : ?>
+                                   <?php foreach ($reviews as $review) : ?>
+                                        <tr>
+                                             <td><?= esc($review['sequence_number']) ?></td>
+                                             <td><?= esc($review['product_title'] ?? 'N/A') ?></td>
+                                             <td><?= esc($review['name']) ?></td>
+                                             <td><?= esc($review['rating']) ?></td>
+                                             <td><?= esc($review['message']) ?></td>
+                                             <td><?= !empty($review['created_at']) ? date('d M Y', strtotime($review['created_at'])) : 'N/A'; ?></td>
+                                             <td>
+                                                  <div class="d-flex gap-2">
+                                                       <a href="<?= base_url('admin/role-detail') ?>" class="btn btn-light btn-sm"><iconify-icon icon="solar:eye-broken" class="align-middle fs-18"></iconify-icon></a>
+                                                       <a href="<?= base_url('admin/edit-role') ?>" class="btn btn-soft-primary btn-sm"><iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon></a>
+                                                       <a href="<?= base_url('admin/role-detail') ?>" class="btn btn-soft-danger btn-sm"><iconify-icon icon="solar:trash-bin-minimalistic-2-broken" class="align-middle fs-18"></iconify-icon></a>
+                                                  </div>
+                                             </td>
+                                        </tr>
+                                   <?php endforeach; ?>
+                              <?php else : ?>
+                                   <tr>
+                                        <td colspan="7">No reviews found.</td>
+                                   </tr>
+                              <?php endif; ?>
                          </tbody>
                     </table>
                </div>

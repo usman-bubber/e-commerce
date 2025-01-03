@@ -7,6 +7,7 @@ use App\Models\CategoryModel;
 use App\Models\ProductImagesModel;
 use App\Models\ProductModel;
 use App\Models\OrderModel;
+use App\Models\ProductReviewModel;
 
 class Home extends BaseController
 {
@@ -66,26 +67,30 @@ class Home extends BaseController
     }
     public function product_detail($id)
     {
-        $productModel = new ProductModel();
-        $productImageModel = new ProductImagesModel();
+        // Fetch Categories 
         $categoryModel = new CategoryModel();
+        $data['categoryModel'] = $categoryModel;
 
         // Fetch product by slug
+        $productModel = new ProductModel();
         $product = $productModel->where('id', $id)->first();
-
         if (!$product) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException("Product not found");
         }
+        $data['product'] = $product;
+
+        // Fetch Product Reviews 
+        $ProductReviewModel = new ProductReviewModel();
+        $reviews = $ProductReviewModel->where('product_id', $id)->findAll();
+        $data['reviews'] = $reviews;
 
         // Fetch related images for the product
+        $productImageModel = new ProductImagesModel();
         $productImages = $productImageModel->where('product_id', $product['id'])->findAll();
-
-        // Pass data to the view
-        $data['productModel'] = $productModel;
-        $data['categoryModel'] = $categoryModel;
-        $data['product'] = $product;
         $data['productImages'] = $productImages;
 
+        // Pass productModel to the view
+        $data['productModel'] = $productModel;
         return view('pages/landing_pages/product-detail', $data);
     }
     public function add_tocart()
@@ -162,7 +167,6 @@ class Home extends BaseController
 
         return view('pages/landing_pages/checkin', $data);
     }
-
     public function order_placement()
     {
         if (isset($_COOKIE['cart_cookie'])) {
@@ -196,7 +200,6 @@ class Home extends BaseController
                 $insert_order = $order_model->insert($order_data);
             }
 
-
             // Retrieve cart items from session or initialize as an empty array if not set
             $cartItems = [];
             // Set the updated empty cart items in the session
@@ -224,10 +227,17 @@ class Home extends BaseController
         $data = [];
         if (!empty($_COOKIE['cart_cookie'])) {
             $cart_cookie = $_COOKIE['cart_cookie'];
-            $cart_detail = json_decode($cart_cookie);
+            $cart_detail = json_decode($cart_cookie, true); // Decode as an associative array
             $product_model = new ProductModel();
             foreach ($cart_detail as $key => $val) {
-                $data['product_detail'][$key] = $product_model->where('id', $val->id)->first();
+                $product = $product_model->where('id', $val['id'])->first();
+                if ($product) {
+                    // Add colors and other details from cookie
+                    $product['colors'] = $val['colors'];
+                    $product['sizes'] = $val['sizes'];
+                    $product['quantity'] = $val['quantity'];
+                    $data['product_detail'][] = $product;
+                }
             }
         }
         return view('pages/landing_pages/checkout', $data);
@@ -264,4 +274,66 @@ class Home extends BaseController
 
         return $this->response->setJSON(['success' => false, 'message' => 'Item not found in cart.']);
     }
+    public function saveReview()
+    {
+        // Validate the input
+        $validation = $this->validate([
+            'name' => 'required|max_length[255]',
+            'rating' => 'required|integer|greater_than[0]|less_than[6]',
+            'message' => 'max_length[5000]',
+        ]);
+
+        if (!$validation) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        // Handle file upload
+        $files = $this->request->getFileMultiple('file');
+        $filePaths = [];
+        if ($files) {
+            foreach ($files as $file) {
+                if ($file->isValid() && !$file->hasMoved()) {
+                    $newName = $file->getRandomName();
+                    $file->move(FCPATH . 'uploads/reviews', $newName);
+                    $filePaths[] = $newName;
+                }
+            }
+        }
+
+        // Save review data
+        $reviewData = [
+            'product_id' => $this->request->getPost('product_id'),
+            'name' => $this->request->getPost('name'),
+            'rating' => $this->request->getPost('rating'),
+            'message' => $this->request->getPost('message'),
+            'images' => json_encode($filePaths),
+        ];
+        // print_r($reviewData);exit;
+        $reviewModel = new ProductReviewModel();
+        $reviewModel->save($reviewData);
+        return redirect()->back()->with('success', 'Review submitted successfully!');
+    }
+    public function fetchMoreReviews()
+    {
+        $ProductReviewModel = new ProductReviewModel();
+        // Get page number and product_id from AJAX
+        $page = (int) ($_GET['page'] ?? 1);
+        $product_id = (int) ($_GET['product_id'] ?? 0);
+    
+        if ($page == 0) {
+            $page = 1;
+        }
+        $perpage = 2;  // Set perpage to 2 to load 2 reviews at a time
+        $offset = ($page - 1) * $perpage;
+    
+        // Fetch reviews for the specified product ID
+        $reviews = $ProductReviewModel->getfilterReviews($perpage, $offset, $product_id);
+    
+        if (!empty($reviews)) {
+            return view('pages/landing_pages/load-more-reviews', ['reviews' => $reviews]);
+        } else {
+            return 'null';  // No more reviews
+        }
+    }
+    
 }

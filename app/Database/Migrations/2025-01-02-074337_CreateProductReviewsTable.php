@@ -4,48 +4,44 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class ProductReviewTable extends Migration
+class CreateProductReviewsTable extends Migration
 {
     public function up()
     {
-        $this->forge->dropTable('product_reviews', true);
-      
         $this->forge->addField([
             'id' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
+                'type'           => 'INT',
+                'constraint'     => 11,
+                'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'order_id' => [
-                'type' => 'INT',
-                'constraint' => 11,
-            ],
             'product_id' => [
-                'type' => 'INT',
+                'type'       => 'INT',
                 'constraint' => 11,
+                'unsigned'   => true,
             ],
-            'user_id' => [
-                'type' => 'INT',
-                'constraint' => 11,
+            'name' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 255,
             ],
             'rating' => [
-                'type' => 'INT',
-                'constraint' => 11,
+                'type'       => 'TINYINT',
+                'constraint' => 1,
             ],
-            'review' => [
+            'message' => [
+                'type' => 'TEXT',
+                'null' => true,
+            ],
+            'images' => [
                 'type' => 'TEXT',
                 'null' => true,
             ],
             'created_at TIMESTAMP DEFAULT NOW() NOT NULL',
             'updated_at TIMESTAMP DEFAULT NOW() NOT NULL',
             'deleted_at TIMESTAMP DEFAULT NULL',
-
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('product_id', 'products', 'id');
-        $this->forge->addForeignKey('user_id', 'users', 'id');
         $this->forge->createTable('product_reviews');
     }
 
